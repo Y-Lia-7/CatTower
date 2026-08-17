@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        print("works");
         health = 3;
         Movement = GetComponent<PlayerMovement>();
     }
@@ -18,7 +17,6 @@ public class PlayerHealth : MonoBehaviour
     public void HurtPlayer(float damage)
     {
         this.health -= damage;
-        print("Hit!");
         
         if (health <= 0)
         {

@@ -60,4 +60,10 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+
+    public void KillPlayer()
+    {
+        Destroy(gameObject);
+    }
 }

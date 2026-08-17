@@ -4,32 +4,25 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public string tagToCheck;
-    public int health;
+    private float health;
     public PlayerMovement Movement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        print("works");
         health = 3;
         Movement = GetComponent<PlayerMovement>();
-        tagToCheck = "Spike";
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void HurtPlayer(float damage)
     {
-        if (collision.gameObject.tag == tagToCheck)
+        this.health -= damage;
+        print("Hit!");
+        
+        if (health <= 0)
         {
-            health -= 1;
-            if (health <= 0)
-            {
-                KillPlayer();    
-            }
+            Movement.KillPlayer();
         }
-    }
-
-    public void KillPlayer()
-    {
-        Destroy(Movement);
     }
 }

@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
 
+    [Header("Health")]
+    public PlayerHealth health;
+
+
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -18,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private bool isGrounded;
 
+    private float lineralValue;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        
         // Get horizontal input
         moveInput = Input.GetAxisRaw("Horizontal");
 
@@ -44,17 +51,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Animation
-        animator.SetFloat("Speed", Mathf.Abs(moveInput));
+
 
         // Flip player depending on direction
         if (moveInput > 0)
         {
             spriteRenderer.flipX = false;
+          
         }
         else if (moveInput < 0)
         {
             spriteRenderer.flipX = true;
+          
         }
+      
     }
 
     void FixedUpdate()
@@ -64,5 +74,22 @@ public class PlayerMovement : MonoBehaviour
             moveInput * moveSpeed,
             rb.linearVelocity.y
         );
+        if(rb.linearVelocityX >= 0.1f || rb.linearVelocityX <= -0.1)
+        {
+            animator.SetBool("IsRunning", true);
+        }
+
+        else 
+        {
+            animator.SetBool("IsRunning", false);
+        }
+
+
+
+    }
+
+    public void KillPlayer()
+    {
+        Destroy(gameObject);
     }
 }

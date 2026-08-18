@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 
     public float smoothSpeed = 5f;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (target == null)
         {
@@ -15,6 +15,6 @@ public class CameraFollow : MonoBehaviour
         Vector3 desiredPosition = target.position;
         desiredPosition.z = transform.position.z;
 
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
     }
 }

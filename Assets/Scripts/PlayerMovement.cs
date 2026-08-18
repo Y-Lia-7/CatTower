@@ -2,65 +2,91 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 16f;
-    private bool isFacingRight = true;
+    [Header("Movement")]
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
+
+    [Header("Ground Check")]
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
+
+    [Header("Health")]
     public PlayerHealth health;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Animator animator;
+
+    private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
+    private float moveInput;
+    private bool isGrounded;
+
+    private float lineralValue;
+    
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        
+        // Get horizontal input
+        moveInput = Input.GetAxisRaw("Horizontal");
 
-        if (horizontal != 0)
-        {
-            animator.SetBool("isRunning", true);
-        }
-        else
-        {
-            animator.SetBool("isRunning", false);
+        // Check if player is touching the ground
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundCheckRadius,
+            groundLayer
+        );
 
-        }
-
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        // Jump
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
-        }
-
-        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
 
-        Flip();
+        // Animation
+
+
+        // Flip player depending on direction
+        if (moveInput > 0)
+        {
+            spriteRenderer.flipX = false;
+          
+        }
+        else if (moveInput < 0)
+        {
+            spriteRenderer.flipX = true;
+          
+        }
+      
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
-
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        // Move player
+        rb.linearVelocity = new Vector2(
+            moveInput * moveSpeed,
+            rb.linearVelocity.y
+        );
+        if(rb.linearVelocityX >= 0.1f || rb.linearVelocityX <= -0.1)
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            animator.SetBool("IsRunning", true);
         }
-    }
 
+        else 
+        {
+            animator.SetBool("IsRunning", false);
+        }
+
+
+
+    }
 
     public void KillPlayer()
     {

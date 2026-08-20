@@ -764,11 +764,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f90b97a94930770458935d0ecb1492b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7417f4568d389c848ba2b56798a20de9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollowOnY
   target: {fileID: 1892016440}
-  smoothSpeed: 5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,7 +1859,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.04744959, y: -3.772197}
+  m_Offset: {x: 0.04744959, y: -3.996317}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1869,7 +1869,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1563249, y: 5.8156066}
+  m_Size: {x: 1.1563249, y: 5.367367}
   m_EdgeRadius: 0
 --- !u!58 &1892016437
 CircleCollider2D:
@@ -1922,7 +1922,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 6200000, guid: 0cf981ce70004c145b87d8eb1b4311e3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2

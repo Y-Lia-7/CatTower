@@ -63,8 +63,8 @@ Transform:
   m_GameObject: {fileID: 7249162734942815950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8, y: -1.52, z: 0}
-  m_LocalScale: {x: 0.2264132, y: 0.2264132, z: 0.2264132}
+  m_LocalPosition: {x: -0.8, y: -0.31, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7109281746662826191}
@@ -145,8 +145,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 1.5
+  m_Material: {fileID: 6200000, guid: 0cf981ce70004c145b87d8eb1b4311e3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -227,7 +227,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.04744959, y: -3.772197}
+  m_Offset: {x: 0.04744959, y: -3.996317}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -237,7 +237,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1563249, y: 5.8156066}
+  m_Size: {x: 1.1563249, y: 5.367367}
   m_EdgeRadius: 0
 --- !u!95 &9213280706063931849
 Animator:
@@ -273,8 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f20f727a6fa8a24db1a3f3027b30bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
-  jumpForce: 7
+  moveSpeed: 9
+  jumpForce: 10
   groundCheck: {fileID: 7109281746662826191}
   groundCheckRadius: 0.2
   groundLayer:

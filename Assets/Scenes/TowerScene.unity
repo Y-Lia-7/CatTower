@@ -830,6 +830,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea57fc4aa12f45e46acf273cba5226dc, type: 3}
+--- !u!114 &254462252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3662019569837508459, guid: 3ceb631868865a9449659db6e38e293f, type: 3}
+  m_PrefabInstance: {fileID: 387522671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8e494a6fac7fc4597c5774787ae99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer
 --- !u!4 &281839285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1811148586202608401, guid: ea57fc4aa12f45e46acf273cba5226dc, type: 3}
@@ -1219,11 +1230,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 984930436743375924, guid: 6f9f6f1e35f92bb40ae187ef135a6137, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.6
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 984930436743375924, guid: 6f9f6f1e35f92bb40ae187ef135a6137, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 141.5
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 984930436743375924, guid: 6f9f6f1e35f92bb40ae187ef135a6137, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1785,6 +1796,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab53d08d8fa7094886343c5d19e6ddd, type: 3}
+--- !u!1 &737715192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737715194}
+  - component: {fileID: 737715193}
+  m_Layer: 0
+  m_Name: LBManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &737715193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737715192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1268c0697c47107439d90309c271c3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LBManager
+  entries: []
+--- !u!4 &737715194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737715192}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 365.5965, y: 145.51631, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &747359039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2010,6 +2066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337d1375caf68db4084143d5279f2ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KaaroScript
+  timer: {fileID: 254462252}
 --- !u!68 &759689544
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2040,7 +2097,7 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3805,7 +3862,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5274,3 +5331,4 @@ SceneRoots:
   - {fileID: 387522671}
   - {fileID: 1862458401390836887}
   - {fileID: 152911375}
+  - {fileID: 737715194}

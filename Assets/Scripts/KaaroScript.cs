@@ -5,17 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class KaaroScript : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            LoadMainMenu();
-        }
-        
-    }
+ [SerializeField] Timer timer;
 
-    public void LoadMainMenu()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        SceneManager.LoadScene(2);
+        if (other.CompareTag("Player"))
+        {
+            float finalTime = timer.GetTime();
+
+            PlayerPrefs.SetFloat("CurrentTime", finalTime);
+            PlayerPrefs.Save();
+
+            SceneManager.LoadScene(2);
+        }
     }
 }
